@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Custom Bootstrap */
+
+.bg-primary{
+  background-color: red !important;
+}
+
+/* End Custom Bootstrap */
