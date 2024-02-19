@@ -20,7 +20,7 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function DiscreteSliderMarks() {
+export default function DiscreteSliderMarks({setLevel}) {
   return (
       <Slider
       sx={{
@@ -55,6 +55,7 @@ export default function DiscreteSliderMarks() {
         step={50}
         valueLabelDisplay="off"
         marks={marks}
+        onChange={(e) => {setLevel(e.target.value)}}
       />
   );
 }

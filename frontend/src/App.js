@@ -8,12 +8,14 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/home';
+import Question from './pages/question';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
+        <Route path='/question' element={<Question/>}></Route>
       </Routes>
     </Router>
   );
