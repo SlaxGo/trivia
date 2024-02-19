@@ -14,12 +14,33 @@ code {
 
 /* Custom Bootstrap */
 
-.bg-primary{
+.bg-primary {
   background-color: #5C3FCF !important;
 }
 
-.bg-secondary{
+.bg-secondary {
   background-color: #C27AFB !important;
+}
+
+.btn-primary {
+  background-color: #0FA6F8 !important;
+}
+
+.btn-secondary {
+  --bs-btn-color: #5C3FCF;
+  --bs-btn-bg: #E8BA64;
+  --bs-btn-border-color: #E8BA64;
+  --bs-btn-hover-color: #5C3FCF;
+  --bs-btn-hover-bg: #d6ac5e;
+  --bs-btn-hover-border-color: #d6ac5e;
+  --bs-btn-focus-shadow-rgb: 130, 138, 145;
+  --bs-btn-active-color: #5C3FCF;
+  --bs-btn-active-bg: #c59e57;
+  --bs-btn-active-border-color: #c59e57;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #5C3FCF;
+  --bs-btn-disabled-bg: #866b38;
+  --bs-btn-disabled-border-color: #866b38;
 }
 
 
