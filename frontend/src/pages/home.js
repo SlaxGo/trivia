@@ -22,7 +22,7 @@ function Home() {
             setNameError(true);
             return;
         }
-        navigate("/question", { state: { name: name, color: 'green' }})
+        navigate("/question", { state: { name: name, category: selCategory, level: level}})
     }
 
     return (
@@ -53,7 +53,7 @@ function Home() {
                             </div>
                             <div className="row justify-content-center mb-3">
                                 <div className="col-11 col-md-6">
-                                    <Slider setLevel={setLevel}/>
+                                    <Slider level={level} setLevel={setLevel}/>
                                 </div>
                             </div>
                             <div className="row justify-content-center">

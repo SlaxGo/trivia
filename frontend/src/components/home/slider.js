@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 
 const marks = [
@@ -20,7 +20,16 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function DiscreteSliderMarks({setLevel}) {
+export default function DiscreteSliderMarks({level, setLevel}) {
+
+  useEffect(() => {
+    switch(level) {
+      case 0: setLevel("easy"); break;
+      case 50: setLevel("medium"); break;
+      case 100: setLevel("hard"); break;
+  }
+  },[level])
+
   return (
       <Slider
       sx={{
