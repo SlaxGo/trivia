@@ -11,13 +11,13 @@ const marks = [
     label: 'Medium',
   },
   {
-    value: 100,
+    value: 99,
     label: 'Hard',
   },
 ];
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value}`;
 }
 
 export default function DiscreteSliderMarks() {
@@ -25,17 +25,26 @@ export default function DiscreteSliderMarks() {
       <Slider
       sx={{
         '& .MuiSlider-thumb': {
-            color: "yellow"
+            color: "#E8BA64",
         },
         '& .MuiSlider-track': {
-            color: "yellow"
+            color: "#E8BA64",
+            height: "10px",
         },
         '& .MuiSlider-rail': {
-            color: "red"
+            color: "#5C3FCF",
+            height: "10px"
         },
         '& .MuiSlider-mark': {
-            color: "green"
+            color: "#5C3FCF",
+            height: "10px",
+            width: "10px",
+            borderRadius: "50%"
         },
+        '& .MuiSlider-markLabel': {
+          color: "#ffffff",
+          fontWeight: "bold"
+      },
         '& .MuiSlider-active': {
             color: "green"
         }

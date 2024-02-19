@@ -1,22 +1,35 @@
-import { SmoothCorners, SmoothCornersWrapper } from "react-smooth-corners";
+
+import { SmoothCorners } from "react-smooth-corners";
 
 import Slider from "../components/home/slider";
+import Select from "../components/home/select";
 import Logo from '../images/trivia.png'
 
-function home() {
+function Home() {
+
     return (
-        <div className="bg-primary vh-100 d-flex align-items-center">
+        <div className="bg-svg vh-100 d-flex align-items-center">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-12 col-lg-6">
-                        <div className="container bg-secondary rounded-4 pt-5 pb-4 position-relative">
+                        <div className="container bg-secondary shadow rounded-4 pt-5 pb-4 position-relative">
                             <img src={Logo} className="position-absolute top-0 start-50 translate-middle w-50" alt='Trivia Logo' style={{maxWidth: "200px"}}></img>
                             <div className="row justify-content-center">
                                 <div className="col-12 col-md-8">
-                                    <div class="form-floating mt-4 mb-3">
-                                        <input type="text" class="form-control rounded-3" id="nickname" placeholder="" />
-                                        <label for="nickname">NickName</label>
+                                    <div className="form-floating mt-4 mb-3">
+                                        <input type="text" className="form-control rounded-3" id="nickname" placeholder="" />
+                                        <label htmlFor="nickname">NickName</label>
                                     </div>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center mb-3">
+                                <div className="col-112 col-md-6">
+                                    <Select />
+                                </div>
+                            </div>
+                            <div className="row justify-content-center mb-3">
+                                <div className="col-11 col-md-6">
+                                    <Slider />
                                 </div>
                             </div>
                             <div className="row justify-content-center">
@@ -39,11 +52,7 @@ function home() {
                                     </SmoothCorners>
                                 </div>
                             </div>
-                            <div className="row justify-content-center">
-                                <div className="col-12 col-md-6">
-                                    <Slider />
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -52,4 +61,4 @@ function home() {
     );
 }
 
-export default home;
+export default Home;
