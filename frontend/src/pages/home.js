@@ -1,5 +1,6 @@
 import { SmoothCorners, SmoothCornersWrapper } from "react-smooth-corners";
 
+import Slider from "../components/home/slider";
 import Logo from '../images/trivia.png'
 
 function home() {
@@ -36,6 +37,11 @@ function home() {
                                     >
                                         Play ▶
                                     </SmoothCorners>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center">
+                                <div className="col-12 col-md-6">
+                                    <Slider />
                                 </div>
                             </div>
                         </div>
