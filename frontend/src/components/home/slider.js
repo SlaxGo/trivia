@@ -23,7 +23,23 @@ function valuetext(value) {
 export default function DiscreteSliderMarks() {
   return (
       <Slider
-      size="300px"
+      sx={{
+        '& .MuiSlider-thumb': {
+            color: "yellow"
+        },
+        '& .MuiSlider-track': {
+            color: "yellow"
+        },
+        '& .MuiSlider-rail': {
+            color: "red"
+        },
+        '& .MuiSlider-mark': {
+            color: "green"
+        },
+        '& .MuiSlider-active': {
+            color: "green"
+        }
+    }}
         aria-label="Custom marks"
         defaultValue={0}
         getAriaValueText={valuetext}
