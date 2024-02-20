@@ -66,7 +66,7 @@ const Question = () => {
   }
 
   return (
-    <div className="bg-primary vh-100 d-flex align-items-center position-relative">
+    <div className="bg-svg2 vh-100 d-flex align-items-center position-relative">
       {que && que.length > 0 && loading===0 ? (
         <>
           {numQu < 10 ? (
