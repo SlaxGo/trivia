@@ -28,7 +28,7 @@ export default function DiscreteSliderMarks({level, setLevel}) {
       case 50: setLevel("medium"); break;
       case 100: setLevel("hard"); break;
   }
-  },[level])
+  },[level, setLevel])
 
   return (
       <Slider

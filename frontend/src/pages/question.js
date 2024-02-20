@@ -34,11 +34,11 @@ const Question = () => {
 
 
     useEffect(() => {
-        if (numQu != 0 && numQu < 10){setAnswers(shuffleArray([...que[numQu].incorrect_answers, que[numQu].correct_answer]));    }
+        if (numQu !== 0 && numQu < 10){setAnswers(shuffleArray([...que[numQu].incorrect_answers, que[numQu].correct_answer]));    }
     }, [numQu])
 
     function handleAnswer(element) {
-        if (element == que[numQu].correct_answer){ alert("Giusto"); setCorrectAnswer(correctAnswer+1);}
+        if (element === que[numQu].correct_answer){ alert("Giusto"); setCorrectAnswer(correctAnswer+1);}
         else alert("Sbagliato")
         setNumQu(numQu + 1);
     }
