@@ -15,7 +15,7 @@ const Question = () => {
   const [answers, setAnswers] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [clickedIndex, setClickedIndex] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(0);
 
   function shuffleArray(array) {
     console.log(array)
@@ -34,7 +34,7 @@ const Question = () => {
       .then((data) => {
         setQue(data.results);
         setAnswers(shuffleArray([...data.results[0].incorrect_answers, data.results[0].correct_answer]));
-        setLoading(false);
+        setLoading(data.response_code);
       })
       .catch(error => console.error(error));
   }, []);
@@ -58,7 +58,7 @@ const Question = () => {
   }
 
   const renderTimer = ({ seconds }) => {
-    const bgClass = seconds <= 10 ? "bg-danger text-light" : "bg-3 text-3";
+    const bgClass = seconds <= 7 ? "bg-danger text-light" : "bg-3 text-3";
     return <div className={`position-absolute bottom-0 end-0 mb-4 me-4 ${bgClass} justify-content-center align-items-center d-flex`}
       style={{ height: '40px', width: '40px', borderRadius: '50%' }}>
       <span className="fw-semibold">{seconds}</span>
@@ -67,12 +67,12 @@ const Question = () => {
 
   return (
     <div className="bg-primary vh-100 d-flex align-items-center position-relative">
-      {que && que.length > 0 && !loading ? (
+      {que && que.length > 0 && loading===0 ? (
         <>
           {numQu < 10 ? (
             <>
               <Countdown
-                date={Date.now() + 45000}
+                date={Date.now() + 20000}
                 zeroPadTime={0}
                 key={numQu}
                 renderer={renderTimer}
@@ -158,12 +158,54 @@ const Question = () => {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-12 col-lg-6">
-                  <div className="container bg-3 shadow rounded-3 py-4 position-relative">
+                  <div className="container bg-secondary shadow rounded-3 py-4 position-relative">
                     <div className="row">
-                      <div className="col-12 text-3 fw-bold text-center">
+                      <div className="col-12 text-light fw-bold text-center">
                         Hai ottenuto {correctAnswer} punti
                       </div>
                     </div>
+                    <div className="row justify-content-center">
+                  <div className="col-12 col-md-6 mt-3">
+                    <SmoothCorners
+                      corners="10"
+                      type="button"
+                      className={
+                        "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
+                      }
+                      style={{
+                        width: "100%",
+                        height: "2.9rem",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      onClick={() => navigate(0)}
+
+                    >
+                      Riprova &#x21bb;
+                    </SmoothCorners>
+                  </div>
+                  <div className="col-12 col-md-6 mt-3">
+                    <SmoothCorners
+                      corners="10"
+                      type="button"
+                      className={
+                        "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
+                      }
+                      style={{
+                        width: "100%",
+                        height: "2.9rem",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      onClick={() => navigate("/")}
+
+                    >
+                      Nuova partita ▶
+                    </SmoothCorners>
+                  </div>
+                </div>
                   </div>
                 </div>
               </div>
