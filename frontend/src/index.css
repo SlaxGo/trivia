@@ -29,6 +29,10 @@ code {
   background-color: #BD3EB9 !important;
 }
 
+.bg-3 {
+  background-color: #E8BA64 !important;
+}
+
 .btn-primary {
   background-color: #2355E8 !important;
 }
@@ -99,5 +103,9 @@ code {
   background-size: 16px 12px;
   border: none;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.text-3{
+  color: #5C3FCF !important;
 }
 /* End Custom Bootstrap */
