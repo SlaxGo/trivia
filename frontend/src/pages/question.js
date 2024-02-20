@@ -14,6 +14,7 @@ const Question = () => {
   const [numQu, setNumQu] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState(0);
+  const [clickedIndex, setClickedIndex] = useState(null);
   const [loading, setLoading] = useState(true);
 
   function shuffleArray(array) {
@@ -44,9 +45,12 @@ const Question = () => {
   }, [numQu])
 
   function handleAnswer(element) {
-    if (element === que[numQu].correct_answer) { alert("Giusto"); setCorrectAnswer(correctAnswer + 1); }
-    else alert("Sbagliato")
-    setNumQu(numQu + 1);
+    if (element === que[numQu].correct_answer)setCorrectAnswer(correctAnswer + 1);
+    setClickedIndex(element);
+    setTimeout(() => {
+      setNumQu(numQu + 1);
+      setClickedIndex(null);
+    }, 1500);
   }
 
   function handleTime() {
@@ -128,7 +132,15 @@ const Question = () => {
                       }}
                       onClick={() => handleAnswer(element)}
                     >
-                      <div className="container h-100 bg-secondary shadow-sm border border-2 rounded-3 py-3">
+                      <div className={`container h-100 transition-e-o shadow-sm border border-2 rounded-3 py-3 ${
+                             clickedIndex === element
+                             ? element === que[numQu].correct_answer
+                               ? 'bg-success'
+                               : 'bg-danger'
+                             : clickedIndex && element === que[numQu].correct_answer
+                             ? 'bg-success'
+                             : 'bg-secondary'
+                      }`}>
                         <div className="row align-items-center">
                           <div className="col-1 pe-0">{index + 1}</div>
                           <div className="col-11 fw-semibold">
@@ -148,8 +160,8 @@ const Question = () => {
                 <div className="col-12 col-lg-6">
                   <div className="container bg-3 shadow rounded-3 py-4 position-relative">
                     <div className="row">
-                      <div className="col-12 text-3 fw-bold">
-                        Hai ottenuto {correctAnswer}
+                      <div className="col-12 text-3 fw-bold text-center">
+                        Hai ottenuto {correctAnswer} punti
                       </div>
                     </div>
                   </div>
