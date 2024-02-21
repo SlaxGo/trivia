@@ -45,12 +45,14 @@ const Question = () => {
   }, [numQu])
 
   function handleAnswer(element) {
+    if(!clickedIndex){
     if (element === que[numQu].correct_answer)setCorrectAnswer(correctAnswer + 1);
     setClickedIndex(element);
     setTimeout(() => {
       setNumQu(numQu + 1);
       setClickedIndex(null);
     }, 1500);
+  }
   }
 
   function handleTime() {
@@ -118,8 +120,6 @@ const Question = () => {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{
-
-
                         scale: {
                           delay: 0.35 + (index / 2),
                           duration: 0.5,
