@@ -47,6 +47,10 @@ code {
   background-color: #E8BA64 !important;
 }
 
+.border-primary{
+  border-color: #E8BA64 !important;
+}
+
 .btn-primary {
   background-color: #2355E8 !important;
 }

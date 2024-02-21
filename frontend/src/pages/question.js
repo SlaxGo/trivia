@@ -47,14 +47,14 @@ const Question = () => {
   }, [numQu])
 
   function handleAnswer(element) {
-    if(!clickedIndex){
-    if (element === que[numQu].correct_answer)setCorrectAnswer(correctAnswer + 1);
-    setClickedIndex(element);
-    setTimeout(() => {
-      setNumQu(numQu + 1);
-      setClickedIndex(null);
-    }, 1500);
-  }
+    if (!clickedIndex) {
+      if (element === que[numQu].correct_answer) setCorrectAnswer(correctAnswer + 1);
+      setClickedIndex(element);
+      setTimeout(() => {
+        setNumQu(numQu + 1);
+        setClickedIndex(null);
+      }, 1500);
+    }
   }
 
   function handleTime() {
@@ -62,26 +62,23 @@ const Question = () => {
   }
 
   const renderTimer = ({ seconds }) => {
-    const bgClass = seconds <= 7 ? "bg-danger text-light" : "bg-3 text-3";
-    return <div className={`position-absolute bottom-0 end-0 mb-4 me-4 ${bgClass} justify-content-center align-items-center d-flex`}
-      style={{ height: '40px', width: '40px', borderRadius: '50%' }}>
+    const bgClass = seconds <= 7 ? "bg-danger text-light" : "btn-primary text-light";
+    return <div className={`transition-e-o border border-3 border-primary position-absolute top-100 start-50 translate-middle ${bgClass} justify-content-center align-items-center d-flex`}
+      style={{ height: '45px', width: '45px', borderRadius: '50%' }}>
       <span className="fw-semibold">{seconds}</span>
     </div>
   }
 
+  const renderNQuestion = () => {
+    return
+  }
+
   return (
     <div className="bg-svg2 vh-100 d-flex align-items-center position-relative">
-      {que && que.length > 0 && loading===0 ? (
+      {que && que.length > 0 && loading === 0 ? (
         <>
           {numQu < 10 ? (
             <>
-              <Countdown
-                date={Date.now() + 20000}
-                zeroPadTime={0}
-                key={numQu}
-                renderer={renderTimer}
-                onComplete={handleTime}
-              />
 
               <div className="container">
                 <motion.div
@@ -103,13 +100,23 @@ const Question = () => {
 
                   <div className="col-12 col-lg-8">
                     <div className="container bg-3 shadow rounded-3 py-4 position-relative"
-                        style={{
-                          position: 'relative',
-                          overflow: 'hidden',
-                          background: `url(${Mark}) no-repeat center right`,
-                          backgroundSize: 'auto 140%',
-                        }}    >
-            
+                      style={{
+                        position: 'relative',
+                        background: `url(${Mark}) no-repeat center right`,
+                        backgroundSize: 'auto 140%',
+                      }}    >
+                      <div className={`transition-e-o btn-primary text-light border border-3 border-primary position-absolute top-0 start-50 translate-middle translate-middle justify-content-center align-items-center d-flex`}
+                        style={{ height: '40px', width: '70px', borderRadius: '0.5rem' }}>
+                        <span className="fw-semibold">{numQu + 1} of 10</span>
+                      </div>
+                      <Countdown
+                        date={Date.now() + 200000}
+                        zeroPadTime={0}
+                        key={numQu}
+                        renderer={renderTimer}
+                        onComplete={handleTime}
+                      />
+
                       <div className="row">
                         <div className="col-12 text-3 fw-bold">
                           {que && que.length > 0 && he.decode(que[numQu].question)}
@@ -141,15 +148,14 @@ const Question = () => {
                       }}
                       onClick={() => handleAnswer(element)}
                     >
-                      <div className={`container h-100 transition-e-o shadow-sm border border-2 rounded-3 py-3 ${
-                             clickedIndex === element
-                             ? element === que[numQu].correct_answer
-                               ? 'bg-success'
-                               : 'bg-danger'
-                             : clickedIndex && element === que[numQu].correct_answer
-                             ? 'bg-success'
-                             : 'bg-secondary'
-                      }`}>
+                      <div className={`container h-100 transition-e-o shadow-sm border border-2 rounded-3 py-3 ${clickedIndex === element
+                        ? element === que[numQu].correct_answer
+                          ? 'bg-success'
+                          : 'bg-danger'
+                        : clickedIndex && element === que[numQu].correct_answer
+                          ? 'bg-success'
+                          : 'bg-secondary'
+                        }`}>
                         <div className="row align-items-center">
                           <div className="col-1 pe-0">{index + 1}</div>
                           <div className="col-11 fw-semibold">
@@ -174,47 +180,47 @@ const Question = () => {
                       </div>
                     </div>
                     <div className="row justify-content-center">
-                  <div className="col-12 col-md-6 mt-3">
-                    <SmoothCorners
-                      corners="10"
-                      type="button"
-                      className={
-                        "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
-                      }
-                      style={{
-                        width: "100%",
-                        height: "2.9rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                      onClick={() => navigate(0)}
+                      <div className="col-12 col-md-6 mt-3">
+                        <SmoothCorners
+                          corners="10"
+                          type="button"
+                          className={
+                            "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
+                          }
+                          style={{
+                            width: "100%",
+                            height: "2.9rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                          onClick={() => navigate(0)}
 
-                    >
-                      Riprova &#x21bb;
-                    </SmoothCorners>
-                  </div>
-                  <div className="col-12 col-md-6 mt-3">
-                    <SmoothCorners
-                      corners="10"
-                      type="button"
-                      className={
-                        "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
-                      }
-                      style={{
-                        width: "100%",
-                        height: "2.9rem",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                      onClick={() => navigate("/")}
+                        >
+                          Riprova &#x21bb;
+                        </SmoothCorners>
+                      </div>
+                      <div className="col-12 col-md-6 mt-3">
+                        <SmoothCorners
+                          corners="10"
+                          type="button"
+                          className={
+                            "btn btn-secondary rounded-4 py-4 fw-bold transition-e-o"
+                          }
+                          style={{
+                            width: "100%",
+                            height: "2.9rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                          onClick={() => navigate("/")}
 
-                    >
-                      Nuova partita ▶
-                    </SmoothCorners>
-                  </div>
-                </div>
+                        >
+                          Nuova partita ▶
+                        </SmoothCorners>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
