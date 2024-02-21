@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import Countdown from 'react-countdown';
 import he from 'he';
 
+import Mark from '../images/question-mark.png'
+
 const Question = () => {
   const navigate = useNavigate()
   const location = useLocation();
@@ -100,7 +102,14 @@ const Question = () => {
                 >
 
                   <div className="col-12 col-lg-8">
-                    <div className="container bg-3 shadow rounded-3 py-4 position-relative">
+                    <div className="container bg-3 shadow rounded-3 py-4 position-relative"
+                        style={{
+                          position: 'relative',
+                          overflow: 'hidden',
+                          background: `url(${Mark}) no-repeat center right`,
+                          backgroundSize: 'auto 140%',
+                        }}    >
+            
                       <div className="row">
                         <div className="col-12 text-3 fw-bold">
                           {que && que.length > 0 && he.decode(que[numQu].question)}
