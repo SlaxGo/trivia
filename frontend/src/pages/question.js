@@ -110,7 +110,7 @@ const Question = () => {
                         <span className="fw-semibold">{numQu + 1} of 10</span>
                       </div>
                       <Countdown
-                        date={Date.now() + 200000}
+                        date={Date.now() + 20000}
                         zeroPadTime={0}
                         key={numQu}
                         renderer={renderTimer}
