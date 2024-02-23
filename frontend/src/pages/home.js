@@ -14,10 +14,6 @@ function Home() {
     const [level, setLevel] = useState(0);
     const [nameError, setNameError] = useState("");
 
-    useEffect(() => {
-        console.log(selCategory);
-    }, [selCategory])
-
     function handlePlay() {
         if (!name) {
             setNameError(true);
